@@ -1,29 +1,57 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4kof5lgl54xw"]
+[gd_scene load_steps=9 format=3 uid="uid://c4kof5lgl54xw"]
 
 [ext_resource type="PackedScene" uid="uid://uex8jnuvvlyg" path="res://Scenes/Objects/ball_example.tscn" id="1_u7wf5"]
+
+[sub_resource type="Gradient" id="Gradient_iir7j"]
+colors = PackedColorArray(0.925901, 0.76747, 0.479971, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_om5vp"]
+noise_type = 2
+frequency = 0.9985
+fractal_octaves = 9
+fractal_gain = 0.8
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fwv48"]
+color_ramp = SubResource("Gradient_iir7j")
+noise = SubResource("FastNoiseLite_om5vp")
+
+[sub_resource type="Gradient" id="Gradient_5nfc3"]
+offsets = PackedFloat32Array(0.0714286, 0.188312, 0.357143, 0.603896, 0.922078)
+colors = PackedColorArray(0.241089, 0.149916, 0.0645198, 1, 0.25374, 0.144686, 0.00383463, 1, 0.256608, 0.0621053, 0.00173717, 1, 0.333174, 0.151209, 0.0147662, 1, 0.203176, 0.0617152, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wcyl3"]
+frequency = 0.1328
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_othq4"]
+color_ramp = SubResource("Gradient_5nfc3")
+noise = SubResource("FastNoiseLite_wcyl3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e13ji"]
 size = Vector2(1599, 66)
 
 [node name="Main" type="Node2D"]
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1600, 900)
 offset_right = 1600.0
 offset_bottom = 900.0
-color = Color(0.264323, 0.364505, 0.38274, 1)
+texture = SubResource("NoiseTexture2D_fwv48")
+stretch_mode = 1
 
-[node name="Ground" type="ColorRect" parent="."]
+[node name="Ground" type="TextureRect" parent="."]
 offset_top = 834.0
 offset_right = 1600.0
 offset_bottom = 900.0
-color = Color(0.0196078, 0.168627, 0.2, 1)
+texture = SubResource("NoiseTexture2D_othq4")
+expand_mode = 3
+stretch_mode = 1
 
 [node name="GroundArea" type="StaticBody2D" parent="Ground"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/GroundArea"]
 position = Vector2(800.5, 33)
 shape = SubResource("RectangleShape2D_e13ji")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="ball_example" parent="." instance=ExtResource("1_u7wf5")]
 position = Vector2(547, 201)
