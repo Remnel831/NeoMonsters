@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://kh10dl7fp4hs"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/object_properties.gd" id="1_f5pbl"]
+[ext_resource type="Texture2D" uid="uid://dg08al8i6l5ky" path="res://Assets/Sprites/chair.png" id="1_wprde"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fl25"]
+bounce = 0.15
+
+[node name="ChairBackground" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_7fl25")
+linear_damp = 0.1
+script = ExtResource("1_f5pbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture_filter = 3
+position = Vector2(-78, -37)
+scale = Vector2(7, 7)
+texture = ExtResource("1_wprde")
+offset = Vector2(4.5, 4.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+z_index = -1
+scale = Vector2(2, 2)
+build_mode = 1
+polygon = PackedVector2Array(-30, 53, -20, 53, -20, 11, 22, 11, 22, 53, 33, 53, 33, -59, 22, -59, 22, 0, -30, 0)

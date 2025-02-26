@@ -1,27 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://uex8jnuvvlyg"]
+[gd_scene load_steps=5 format=3 uid="uid://uex8jnuvvlyg"]
 
 [ext_resource type="Texture2D" uid="uid://dcibb4q6h71fx" path="res://Assets/Sprites/ball_example.png" id="1_ee86l"]
+[ext_resource type="Script" path="res://Scripts/Objects/object_properties.gd" id="1_tm5bj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fl25"]
-friction = 0.2
-bounce = 0.9
+friction = 0.3
+bounce = 0.75
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6mwou"]
 radius = 42.0119
 
-[node name="PetExample" type="Node2D"]
+[node name="Ball" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_7fl25")
 linear_damp = 0.1
 angular_damp = 0.05
-constant_force = Vector2(100, 0)
+script = ExtResource("1_tm5bj")
+
+[node name="Collision" type="CollisionShape2D" parent="RigidBody2D"]
+z_index = 2
+shape = SubResource("CircleShape2D_6mwou")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture_filter = 3
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_ee86l")
 offset = Vector2(4.5, 4.5)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_6mwou")
