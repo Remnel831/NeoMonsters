@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://uex8jnuvvlyg"]
+[gd_scene load_steps=6 format=3 uid="uid://uex8jnuvvlyg"]
 
 [ext_resource type="Texture2D" uid="uid://dcibb4q6h71fx" path="res://Assets/Sprites/ball_example.png" id="1_ee86l"]
+[ext_resource type="Script" path="res://Scripts/Objects/ball.gd" id="1_jg3ot"]
 [ext_resource type="Script" path="res://Scripts/Objects/object_properties.gd" id="1_tm5bj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fl25"]
@@ -10,7 +11,8 @@ bounce = 0.75
 [sub_resource type="CircleShape2D" id="CircleShape2D_6mwou"]
 radius = 42.0119
 
-[node name="Ball" type="Node2D"]
+[node name="Ball" type="Node2D" groups=["ball"]]
+script = ExtResource("1_jg3ot")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 mass = 20.0

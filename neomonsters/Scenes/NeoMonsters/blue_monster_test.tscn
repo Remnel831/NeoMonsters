@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8oa4jex8jxbc"]
+[gd_scene load_steps=5 format=3 uid="uid://8oa4jex8jxbc"]
+
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/monster_ai.gd" id="1_yguvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikv8f"]
-size = Vector2(73, 122)
+size = Vector2(73, 123)
 
 [sub_resource type="Gradient" id="Gradient_o26xm"]
 offsets = PackedFloat32Array(0, 0.974026)
@@ -14,9 +16,10 @@ gradient = SubResource("Gradient_o26xm")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 platform_floor_layers = 4294901760
+script = ExtResource("1_yguvp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.5, 2)
+position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_ikv8f")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]

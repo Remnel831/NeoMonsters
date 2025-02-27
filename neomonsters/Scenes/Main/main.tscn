@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4kof5lgl54xw"]
+[gd_scene load_steps=12 format=3 uid="uid://c4kof5lgl54xw"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_q1ess"]
-[ext_resource type="PackedScene" uid="uid://uex8jnuvvlyg" path="res://Scenes/Objects/ball.tscn" id="1_u7wf5"]
 [ext_resource type="PackedScene" uid="uid://kh10dl7fp4hs" path="res://Scenes/Objects/chair.tscn" id="2_nqyh8"]
 [ext_resource type="PackedScene" uid="uid://8oa4jex8jxbc" path="res://Scenes/NeoMonsters/blue_monster_test.tscn" id="4_ulhr7"]
 
@@ -56,11 +55,8 @@ stretch_mode = 1
 [node name="ChairBackground" parent="." instance=ExtResource("2_nqyh8")]
 position = Vector2(1284, 519)
 
-[node name="Ball" parent="." instance=ExtResource("1_u7wf5")]
-position = Vector2(547, 201)
-
 [node name="BlueMonster" parent="." instance=ExtResource("4_ulhr7")]
-position = Vector2(340, 558)
+position = Vector2(40, 771)
 
 [node name="Ground" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_7ang7")
