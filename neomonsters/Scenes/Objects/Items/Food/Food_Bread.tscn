@@ -1,0 +1,101 @@
+[gd_scene load_steps=22 format=3 uid="uid://ccpfhuxc4hyxg"]
+
+[ext_resource type="Texture2D" uid="uid://uv5oaklwaspy" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame1.png" id="1_wi1t3"]
+[ext_resource type="Texture2D" uid="uid://cvknld8mgwcfj" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame2.png" id="2_wsuah"]
+[ext_resource type="Texture2D" uid="uid://buow0vxhqf0qe" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame3.png" id="3_5iov2"]
+[ext_resource type="Texture2D" uid="uid://cqv76xqu0g5hs" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame4.png" id="4_3wfx3"]
+[ext_resource type="Texture2D" uid="uid://dsq8ocxbkbyme" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame5.png" id="5_y1eje"]
+[ext_resource type="Texture2D" uid="uid://m4tpyixv3gnc" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame6.png" id="6_mdqiw"]
+[ext_resource type="Texture2D" uid="uid://cfw264i61uml4" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame7.png" id="7_tsnbg"]
+[ext_resource type="Texture2D" uid="uid://b61r2plv2h5gg" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame8.png" id="8_l5oeu"]
+[ext_resource type="Texture2D" uid="uid://kk1cq868n7yv" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame9.png" id="9_y5h28"]
+[ext_resource type="Texture2D" uid="uid://ci77m0p7ihpwe" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame10.png" id="10_17iki"]
+[ext_resource type="Texture2D" uid="uid://dd6yaaeatlply" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame11.png" id="11_5mb54"]
+[ext_resource type="Texture2D" uid="uid://ckhw55otsfcbf" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame12.png" id="12_6dbkk"]
+[ext_resource type="Texture2D" uid="uid://cvishv3b3vjuw" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame13.png" id="13_85bri"]
+[ext_resource type="Texture2D" uid="uid://bexuaksjcw477" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame14.png" id="14_5v6qr"]
+[ext_resource type="Texture2D" uid="uid://ijayi0jag6xn" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame15.png" id="15_8otnu"]
+[ext_resource type="Texture2D" uid="uid://d0y77itxe33k6" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame16.png" id="16_esqvw"]
+[ext_resource type="Texture2D" uid="uid://dxung7hw8gj8r" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame17.png" id="17_v67li"]
+[ext_resource type="Texture2D" uid="uid://hkmuidwufux7" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame18.png" id="18_6b5l3"]
+[ext_resource type="Texture2D" uid="uid://brb3exk2hrkq1" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame19.png" id="19_eb027"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hevbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wi1t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wsuah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5iov2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3wfx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y1eje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mdqiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tsnbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l5oeu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y5h28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_17iki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5mb54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6dbkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_85bri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5v6qr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8otnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_esqvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_v67li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_6b5l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_eb027")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmi5"]
+size = Vector2(148, 191)
+
+[node name="Bread" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+sprite_frames = SubResource("SpriteFrames_hevbk")
+frame_progress = 0.99663
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(14, 9.5)
+shape = SubResource("RectangleShape2D_dlmi5")
