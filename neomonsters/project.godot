@@ -29,6 +29,10 @@ folder_colors={
 "res://Scripts/": "blue"
 }
 
+[global_group]
+
+ball=""
+
 [rendering]
 
 renderer/rendering_method="mobile"

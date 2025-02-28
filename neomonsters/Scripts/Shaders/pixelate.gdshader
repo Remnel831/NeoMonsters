@@ -36,7 +36,7 @@ float voronoi(vec2 uv) {
 
 void fragment() {
     vec2 tex_size = TEXTURE_PIXEL_SIZE * vec2(float(x_pixel_size), float(y_pixel_size));
-    
+
     // Base pixelation grid
     vec2 pixel_uv = floor(UV / tex_size) * tex_size;
 
