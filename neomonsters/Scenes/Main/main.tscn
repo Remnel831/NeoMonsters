@@ -55,9 +55,6 @@ stretch_mode = 1
 [node name="ChairBackground" parent="." instance=ExtResource("2_nqyh8")]
 position = Vector2(1284, 519)
 
-[node name="BlueMonster" parent="." instance=ExtResource("4_ulhr7")]
-position = Vector2(40, 771)
-
 [node name="Ground" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_7ang7")
 offset_top = 834.0
@@ -74,3 +71,6 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Ground/GroundArea"]
 position = Vector2(800.5, 33)
 polygon = PackedVector2Array(-816.5, -33, 840.5, -33, 1123.5, -1362, -1033.5, -1295, -836.5, -35, -1307.5, -22, -1651.5, -1789, 1743.5, -1932, 1297.5, 427, -1322.5, 284, -1296.5, -67)
+
+[node name="BlueMonster" parent="." instance=ExtResource("4_ulhr7")]
+position = Vector2(160, 673)

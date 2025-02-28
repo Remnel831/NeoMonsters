@@ -1,16 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://8oa4jex8jxbc"]
+[gd_scene load_steps=13 format=3 uid="uid://8oa4jex8jxbc"]
 
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/monster_ai.gd" id="1_yguvp"]
+[ext_resource type="Texture2D" uid="uid://b4d11jgy55uiu" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_1.png" id="2_dsu81"]
+[ext_resource type="Texture2D" uid="uid://bm3g6kihq7ja0" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_2.png" id="3_kyw6i"]
+[ext_resource type="Texture2D" uid="uid://d0qq6kfvgef5c" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_3.png" id="4_1h856"]
+[ext_resource type="Texture2D" uid="uid://boa7gf8vgkd86" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_4.png" id="5_0o6n6"]
+[ext_resource type="Texture2D" uid="uid://b8bhrnachw4qd" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_5.png" id="6_b0dk6"]
+[ext_resource type="Texture2D" uid="uid://d2e0f41ur4xgs" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_6.png" id="7_cu4cw"]
+[ext_resource type="Texture2D" uid="uid://bpd0lqyf2hoe0" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_7.png" id="8_gmog6"]
+[ext_resource type="Texture2D" uid="uid://b3ktif45yhoe0" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_8.png" id="9_fuphy"]
+[ext_resource type="Texture2D" uid="uid://grx8np4b3b8f" path="res://Assets/Monster1_Pixel_Art/Monster1_Idle_9.png" id="10_h2oau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikv8f"]
-size = Vector2(73, 123)
+size = Vector2(264, 314)
 
-[sub_resource type="Gradient" id="Gradient_o26xm"]
-offsets = PackedFloat32Array(0, 0.974026)
-colors = PackedColorArray(3.60981e-08, 0, 0.279022, 1, 0, 0.157728, 0.240175, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vbke6"]
-gradient = SubResource("Gradient_o26xm")
+[sub_resource type="SpriteFrames" id="SpriteFrames_ye6ew"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("2_dsu81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kyw6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1h856")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0o6n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b0dk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cu4cw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gmog6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fuphy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h2oau")
+}],
+"loop": true,
+"name": &"IdleAnimation",
+"speed": 5.0
+}]
 
 [node name="BlueMonster" type="Node2D"]
 
@@ -19,10 +56,10 @@ platform_floor_layers = 4294901760
 script = ExtResource("1_yguvp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.5, 1.5)
+position = Vector2(-6, -2)
 shape = SubResource("RectangleShape2D_ikv8f")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-0.499997, 1.5)
-scale = Vector2(1.17188, 1.92188)
-texture = SubResource("GradientTexture2D_vbke6")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_ye6ew")
+animation = &"IdleAnimation"
+frame_progress = 0.426475

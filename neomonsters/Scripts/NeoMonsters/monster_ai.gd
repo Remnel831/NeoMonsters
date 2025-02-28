@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var _animated_sprite = $AnimatedSprite2D
 
 const GRAVITY = 980
 const SPEED = 300
@@ -33,6 +34,8 @@ var idle_jump_timer = null  # Timer for random jumps
 
 func _ready():
 	position.x = clamp(position.x, MIN_X, MAX_X)
+	#adding idle animation here
+	_animated_sprite.play("IdleAnimation")
 
 	# Timers for wandering and jumping in idle mode
 	idle_wait_timer = Timer.new()
