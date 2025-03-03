@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi8cf2whbbpn7"]
+
+[ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_b5py0"]
+[ext_resource type="Texture2D" uid="uid://cekuk2qonoy6n" path="res://Assets/Sprites/chillguy.png" id="2_crp5d"]
+[ext_resource type="Texture2D" uid="uid://cqhv23pdj618s" path="res://Assets/Sprites/Frame.png" id="3_sqvm4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icso2"]
+shader = ExtResource("1_b5py0")
+shader_parameter/x_pixel_size = 25
+shader_parameter/y_pixel_size = 25
+shader_parameter/noise_intensity = 1.0
+shader_parameter/seed = 0.5
+
+[node name="FramedPicture" type="Node2D"]
+
+[node name="Photo" type="Sprite2D" parent="."]
+texture_filter = 3
+material = SubResource("ShaderMaterial_icso2")
+position = Vector2(-7.86782e-07, -0.499995)
+scale = Vector2(0.13125, 0.164729)
+texture = ExtResource("2_crp5d")
+
+[node name="Frame" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(-2.38419e-07, -0.5)
+scale = Vector2(2.25, 3.46875)
+texture = ExtResource("3_sqvm4")

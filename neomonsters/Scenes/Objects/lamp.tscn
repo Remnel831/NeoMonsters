@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctkqalwqfjcw5"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/object_properties.gd" id="1_4gpqp"]
+[ext_resource type="Texture2D" uid="uid://bgdgo7m0641gq" path="res://Assets/Sprites/Lamp.png" id="2_mhdpf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fl25"]
+bounce = 0.15
+
+[sub_resource type="Gradient" id="Gradient_5ginn"]
+offsets = PackedFloat32Array(0, 0.0519481, 0.142857, 0.25974, 0.402597, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.828337, 0.68435, 0.222493, 1, 0.47456, 0.387622, 0.105458, 1, 0.252028, 0.252028, 0.252028, 1, 0.169241, 0.133077, 0.0196476, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ba7al"]
+gradient = SubResource("Gradient_5ginn")
+fill = 1
+fill_from = Vector2(0.5, 0.472477)
+fill_to = Vector2(0.509174, 1)
+
+[node name="LampBackground" type="Node2D"]
+
+[node name="RigidBodyBody" type="RigidBody2D" parent="."]
+position = Vector2(0, -422)
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_7fl25")
+script = ExtResource("1_4gpqp")
+
+[node name="PointLight2D" type="PointLight2D" parent="RigidBodyBody"]
+position = Vector2(-1.50006, 95.4999)
+scale = Vector2(80.9531, 66.5156)
+color = Color(0.933055, 0.721018, 0.293844, 1)
+energy = 1.5
+blend_mode = 2
+texture = SubResource("GradientTexture2D_ba7al")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBodyBody"]
+texture_filter = 3
+position = Vector2(-49, 36)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("2_mhdpf")
+offset = Vector2(4.5, 4.5)
+
+[node name="CollisionPolygonBody" type="CollisionPolygon2D" parent="RigidBodyBody"]
+z_index = -1
+position = Vector2(-61.7138, 284.998)
+rotation = 3.14159
+scale = Vector2(2.78915, 3.76403)
+build_mode = 1
+polygon = PackedVector2Array(17.3119, 78.6386, -13.8801, 78.6386, -13.8801, -24.708, 9.42445, -35.6006, -51.526, -35.6006, -29.297, -24.708, -28.9388, 78.9042, -60.1311, 78.6385, -32.8827, 106.534, -10.2952, 106.534)
+
+[node name="StaticBodyHead" type="StaticBody2D" parent="RigidBodyBody"]
+position = Vector2(0, 422)
+
+[node name="CollisionPolygonHead" type="CollisionPolygon2D" parent="RigidBodyBody/StaticBodyHead"]
+polygon = PackedVector2Array(-110, -433, 106, -433, 30, -538, -33, -538)
