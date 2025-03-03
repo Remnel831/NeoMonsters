@@ -11,9 +11,10 @@ const JUMP_FORCE_MAX = -600
 const MIN_X = 40
 const MAX_X = 1560
 const STATUS_CHECK_INTERVAL = 5.0  # Check for ball every 5 sec
-const BALL_FOLLOW_THRESHOLD = 60  # Increased to allow more horizontal jump range
-const BALL_JUMP_MIN_HEIGHT = 200  # Min height for AI to jump toward the ball
-const BALL_JUMP_MAX_HEIGHT = 100  # Lowered max height to encourage more jumps
+const BALL_FOLLOW_THRESHOLD = 40  # Increase for bigger delay in following
+const BALL_JUMP_MIN_HEIGHT = 115  # Min height for AI to jump toward the ball
+const BALL_JUMP_MAX_HEIGHT = 225  # Increase max height to encourage more jumps
+const BALL_JUMP_MAX_LENGTH = 40  # How far horizontally the ball can be to allow jumps
 const IDLE_WAIT_MIN = 1.0  # Min time to wait at a wander point
 const IDLE_WAIT_MAX = 3.0  # Max time to wait at a wander point
 const IDLE_JUMP_MIN = 2.0  # Min idle jump interval
@@ -99,13 +100,14 @@ func follow_ball_x():
 	if distance_to_ball > BALL_FOLLOW_THRESHOLD:
 		direction = sign(ball_x - position.x)
 		self.velocity.x = SPEED * direction
-
+		
 func check_jump_condition():
 	if ball_position:
-		var ball_height_diff = position.y - ball_position.y
+		var viewport_height = get_viewport_rect().size.y
+		var adjusted_ball_y = (viewport_height - ball_position.y) - 107  # Convert ball Y to AI's system and adjust for ground level
 		var ball_x_diff = abs(ball_position.x - position.x)
-
-		if BALL_JUMP_MIN_HEIGHT <= ball_height_diff and ball_height_diff <= BALL_JUMP_MAX_HEIGHT and ball_x_diff < BALL_FOLLOW_THRESHOLD * 1.5 and is_on_floor():
+		# Check if ball is within jump range
+		if BALL_JUMP_MIN_HEIGHT <= adjusted_ball_y and adjusted_ball_y <= BALL_JUMP_MAX_HEIGHT and ball_x_diff <= BALL_JUMP_MAX_LENGTH:
 			jump()
 
 func jump():

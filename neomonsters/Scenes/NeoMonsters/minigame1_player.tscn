@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0lpsnp64ueru"]
+
+[ext_resource type="Script" path="res://Scripts/Minigames/minigame_player.gd" id="1_xud8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikv8f"]
+size = Vector2(73, 123)
+
+[sub_resource type="Gradient" id="Gradient_o26xm"]
+offsets = PackedFloat32Array(0, 0.974026)
+colors = PackedColorArray(3.60981e-08, 0, 0.279022, 1, 0, 0.157728, 0.240175, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vbke6"]
+gradient = SubResource("Gradient_o26xm")
+
+[node name="BlueMonster" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+platform_floor_layers = 4294901760
+script = ExtResource("1_xud8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_ikv8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-0.499997, 1.5)
+scale = Vector2(1.17188, 1.92188)
+texture = SubResource("GradientTexture2D_vbke6")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

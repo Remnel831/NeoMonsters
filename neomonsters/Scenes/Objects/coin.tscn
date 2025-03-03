@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyikeihjqljhi"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/coin.gd" id="1_1m2xd"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/glossy_shine.gdshader" id="1_mo1eb"]
+[ext_resource type="Texture2D" uid="uid://bfu8gwvpog8e5" path="res://Assets/Sprites/Coin.png" id="2_x1moh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1txy"]
+shader = ExtResource("1_mo1eb")
+shader_parameter/Line_Smoothness = 0.1
+shader_parameter/Line_Width = 0.11
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 2.0
+shader_parameter/Speed = 0.4
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+shader_parameter/Shine_Color = Color(1, 1, 0.545098, 1)
+shader_parameter/surface = ExtResource("2_x1moh")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mx87g"]
+radius = 41.0122
+
+[node name="Coin" type="Node2D"]
+script = ExtResource("1_1m2xd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="SpriteOrig" type="Sprite2D" parent="Area2D"]
+texture_filter = 3
+scale = Vector2(3, 3)
+texture = ExtResource("2_x1moh")
+
+[node name="SpriteShader" type="Sprite2D" parent="Area2D"]
+texture_filter = 3
+material = SubResource("ShaderMaterial_t1txy")
+scale = Vector2(3, 3)
+texture = ExtResource("2_x1moh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_mx87g")

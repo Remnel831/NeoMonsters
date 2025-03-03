@@ -29,3 +29,11 @@ z_index = -1
 scale = Vector2(2, 2)
 build_mode = 1
 polygon = PackedVector2Array(-30, 53, -20, 53, -20, 11, 22, 11, 22, 53, 33, 53, 33, -59, 22, -59, 22, 0, -30, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D/StaticBody2D"]
+polygon = PackedVector2Array(-61, 2, 65, 2, 65, 18, -61, 18)
+one_way_collision = true

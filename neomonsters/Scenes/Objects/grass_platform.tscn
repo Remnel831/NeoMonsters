@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh3sgstwguha5"]
+
+[ext_resource type="Texture2D" uid="uid://l6581acifckg" path="res://Assets/Sprites/platform_grassy.png" id="1_bakld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yikct"]
+size = Vector2(512.5, 23)
+
+[node name="GrassPlatform" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.25, 36.5)
+shape = SubResource("RectangleShape2D_yikct")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(8, 8)
+texture = ExtResource("1_bakld")

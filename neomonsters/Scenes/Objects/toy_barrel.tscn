@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bo7pddt5mlhis"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/toy_barrel.gd" id="1_ipcms"]
+[ext_resource type="Script" path="res://Scripts/Objects/object_properties.gd" id="1_wj605"]
+[ext_resource type="Texture2D" uid="uid://bv3lsqyv0o8nd" path="res://Assets/Sprites/ToyBarrel.png" id="2_rcru8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fl25"]
+bounce = 0.15
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeheq"]
+size = Vector2(167, 223)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qkms"]
+size = Vector2(168, 7)
+
+[node name="ToyBarrel" type="Node2D"]
+script = ExtResource("1_ipcms")
+
+[node name="ToyBarrelRidgedBody" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_7fl25")
+linear_damp = 0.1
+script = ExtResource("1_wj605")
+
+[node name="Sprite2D" type="Sprite2D" parent="ToyBarrelRidgedBody"]
+texture_filter = 3
+position = Vector2(-78, -37)
+scale = Vector2(7, 7)
+texture = ExtResource("2_rcru8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToyBarrelRidgedBody"]
+z_index = -1
+position = Vector2(-77.5, -36.5)
+shape = SubResource("RectangleShape2D_aeheq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ToyBarrelRidgedBody"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToyBarrelRidgedBody/StaticBody2D"]
+position = Vector2(-78, -145.5)
+shape = SubResource("RectangleShape2D_4qkms")
+one_way_collision = true
+
+[connection signal="create_ball" from="ToyBarrelRidgedBody" to="." method="_on_toy_barrel_ridged_body_create_ball"]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3xce5dcfwyc4"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/object_properties.gd" id="1_7603u"]
+[ext_resource type="Texture2D" uid="uid://ds7wqm6h123pt" path="res://Assets/Sprites/table.png" id="2_f0hg7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7fl25"]
+bounce = 0.15
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaq2f"]
+size = Vector2(112, 7.33333)
+
+[node name="TableBackground" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+mass = 100.0
+physics_material_override = SubResource("PhysicsMaterial_7fl25")
+linear_damp = 0.1
+script = ExtResource("1_7603u")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture_filter = 3
+position = Vector2(-117, -55)
+scale = Vector2(10.5, 10.5)
+texture = ExtResource("2_f0hg7")
+offset = Vector2(4.5, 4.5)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(-196, 160, -175, 160, -175, 3, 35, 3, 35, 160, 56, 160, 56, 3, 98, -8, 98, -29, -238, -29, -238, -7, -196, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="RigidBody2D/StaticBody2D"]
+position = Vector2(-70, -18)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_yaq2f")
+one_way_collision = true

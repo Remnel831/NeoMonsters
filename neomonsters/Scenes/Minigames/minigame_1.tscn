@@ -1,13 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://bic4xogpcw7ut"]
+[gd_scene load_steps=17 format=3 uid="uid://bic4xogpcw7ut"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_3562e"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/godrays.gdshader" id="1_kn7gc"]
+[ext_resource type="Script" path="res://Scripts/Minigames/minigame_1.gd" id="1_v7ovj"]
+[ext_resource type="PackedScene" uid="uid://b0lpsnp64ueru" path="res://Scenes/NeoMonsters/minigame1_player.tscn" id="3_oiibr"]
+[ext_resource type="PackedScene" uid="uid://bh3sgstwguha5" path="res://Scenes/Objects/grass_platform.tscn" id="4_3pquo"]
+[ext_resource type="PackedScene" uid="uid://dyikeihjqljhi" path="res://Scenes/Objects/coin.tscn" id="5_4p0xn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p7e78"]
 shader = ExtResource("1_3562e")
-shader_parameter/x_pixel_size = 16
-shader_parameter/y_pixel_size = 16
-shader_parameter/noise_intensity = 0.5
+shader_parameter/x_pixel_size = 6
+shader_parameter/y_pixel_size = 14
+shader_parameter/noise_intensity = 0.0
 shader_parameter/seed = 0.5
 
 [sub_resource type="Gradient" id="Gradient_1hm6b"]
@@ -42,39 +46,130 @@ noise = SubResource("FastNoiseLite_uqhf3")
 shader = ExtResource("1_kn7gc")
 shader_parameter/angle = -0.3
 shader_parameter/position = -0.2
-shader_parameter/spread = 0.5
-shader_parameter/cutoff = 0.1
-shader_parameter/falloff = 0.2
-shader_parameter/edge_fade = 0.15
+shader_parameter/spread = 0.157
+shader_parameter/cutoff = -1.0
+shader_parameter/falloff = 0.065
+shader_parameter/edge_fade = 0.375
 shader_parameter/speed = 1.0
-shader_parameter/ray1_density = 8.0
-shader_parameter/ray2_density = 30.0
+shader_parameter/ray1_density = 20.0
+shader_parameter/ray2_density = 200.0
 shader_parameter/ray2_intensity = 0.3
-shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
-shader_parameter/hdr = false
+shader_parameter/color = Color(1, 0.901961, 0, 0.454902)
+shader_parameter/hdr = true
 shader_parameter/seed = 5.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hcll0"]
 
 [node name="Minigame1" type="Node2D"]
+script = ExtResource("1_v7ovj")
+coin_scene = ExtResource("5_4p0xn")
 
 [node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
 material = SubResource("ShaderMaterial_p7e78")
-offset_right = 1600.0
+offset_left = -794.0
+offset_top = -2599.0
+offset_right = 4588.0
 offset_bottom = 900.0
 texture = SubResource("NoiseTexture2D_wqs6a")
 
 [node name="Grass" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_dr34j")
-offset_top = 785.0
-offset_right = 1600.0
-offset_bottom = 903.0
+offset_left = -798.0
+offset_top = 825.0
+offset_right = 4590.0
+offset_bottom = 1214.0
 texture = SubResource("NoiseTexture2D_8us7b")
 expand_mode = 2
 stretch_mode = 1
 
 [node name="Godrays" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_qvqo8")
-offset_right = 1600.0
-offset_bottom = 903.0
+offset_left = -796.0
+offset_top = -3027.0
+offset_right = 4593.0
+offset_bottom = 1218.0
 texture = SubResource("PlaceholderTexture2D_hcll0")
+
+[node name="Player" parent="." instance=ExtResource("3_oiibr")]
+position = Vector2(152, 760)
+
+[node name="Border" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
+polygon = PackedVector2Array(-1, 825, 3815, 828, 3819, -1936, -10, -1936, 0, 762, 0, 820, -37, 1070, -515, 1064, -667, -339, -489, -2174, 4114, -2168, 4127, 1108, -32, 1077)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.988235, 1, 0.780392, 0.686275)
+blend_mode = 2
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="GrassPlatform" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(802, 660)
+
+[node name="GrassPlatform2" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2007, 607)
+
+[node name="GrassPlatform3" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(1321, 327)
+
+[node name="GrassPlatform4" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2180, 120)
+
+[node name="GrassPlatform5" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2777, 337)
+
+[node name="GrassPlatform6" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(772, -74)
+
+[node name="GrassPlatform7" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(1350, -285)
+
+[node name="GrassPlatform8" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2180, -353)
+
+[node name="GrassPlatform9" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(3358, -1053)
+
+[node name="GrassPlatform22" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2601, -1473)
+
+[node name="GrassPlatform23" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(1848, -1294)
+
+[node name="GrassPlatform17" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2640, -1155)
+
+[node name="GrassPlatform18" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(1190, -1067)
+
+[node name="GrassPlatform19" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(528, -1294)
+
+[node name="GrassPlatform10" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2099, -883)
+
+[node name="GrassPlatform20" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(3337, -449)
+
+[node name="GrassPlatform21" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2895, -752)
+
+[node name="GrassPlatform11" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(850, -759)
+
+[node name="GrassPlatform12" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(437, -442)
+
+[node name="GrassPlatform13" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(426, 251)
+
+[node name="GrassPlatform14" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(3344, 541)
+
+[node name="GrassPlatform15" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(3433, 135)
+
+[node name="GrassPlatform16" parent="Platforms" instance=ExtResource("4_3pquo")]
+position = Vector2(2909, -147)
