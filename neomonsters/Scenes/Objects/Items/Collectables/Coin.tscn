@@ -1,0 +1,99 @@
+[gd_scene load_steps=21 format=3 uid="uid://becp2v25hem26"]
+
+[ext_resource type="Texture2D" uid="uid://bbkqpmh1ha6o6" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame01_Pixel.png" id="1_3vixk"]
+[ext_resource type="Texture2D" uid="uid://be0dedd13ngo6" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame02_Pixel.png" id="2_gx3f1"]
+[ext_resource type="Texture2D" uid="uid://bp4t4nmmpg4s6" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame03_pixel.png" id="3_0a77r"]
+[ext_resource type="Texture2D" uid="uid://16t0nbc0cm7s" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame04_pixel.png" id="4_tpiyr"]
+[ext_resource type="Texture2D" uid="uid://b0klxyh7lu08j" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame05_pixel.png" id="5_lvkvd"]
+[ext_resource type="Texture2D" uid="uid://445i0d8qxrwu" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame06_pixel.png" id="6_cwop8"]
+[ext_resource type="Texture2D" uid="uid://dypsjm6ji2jt8" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame07_pixel.png" id="7_dbrbu"]
+[ext_resource type="Texture2D" uid="uid://ddwuu2t6urkme" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame08_pixel.png" id="8_sqnyy"]
+[ext_resource type="Texture2D" uid="uid://cf34regc3tkef" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame09_pixel.png" id="9_garef"]
+[ext_resource type="Texture2D" uid="uid://bvdhq5vqfcn1u" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame10_pixel.png" id="10_4uxef"]
+[ext_resource type="Texture2D" uid="uid://clgv7ava7mwfk" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame11_pixel.png" id="11_fl8sh"]
+[ext_resource type="Texture2D" uid="uid://81obu5bimefj" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame12_pixel.png" id="12_atpuw"]
+[ext_resource type="Texture2D" uid="uid://bv1dttmgxx28a" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame13_pixel.png" id="13_abmnc"]
+[ext_resource type="Texture2D" uid="uid://p0y8jkq8r37v" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame14_pixel.png" id="14_o7f45"]
+[ext_resource type="Texture2D" uid="uid://bbbtvmntvbs3a" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame15_pixel.png" id="15_bvkqy"]
+[ext_resource type="Texture2D" uid="uid://ctqjer55lsamc" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame16_pixel.png" id="16_y17l5"]
+[ext_resource type="Texture2D" uid="uid://dhcebxy1h8xa4" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame17_pixel.png" id="17_20ys5"]
+[ext_resource type="Texture2D" uid="uid://ck1eewba16vnr" path="res://Assets/Items/Collectables/Coin/Pixel/Coin_Frame18_pixel.png" id="18_otc8v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vidn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3vixk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gx3f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0a77r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tpiyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lvkvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cwop8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dbrbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sqnyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_garef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4uxef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fl8sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_atpuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_abmnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_o7f45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bvkqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y17l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_20ys5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_otc8v")
+}],
+"loop": true,
+"name": &"CoinItemSpin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7m7f8"]
+radius = 106.527
+
+[node name="Coin" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+sprite_frames = SubResource("SpriteFrames_0vidn")
+animation = &"CoinItemSpin"
+autoplay = "CoinItemSpin"
+frame_progress = 0.0736023
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(10, 1)
+shape = SubResource("CircleShape2D_7m7f8")
