@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://8oa4jex8jxbc"]
+[gd_scene load_steps=35 format=3 uid="uid://blfvxl8ygxe5r"]
 
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/MonsterStatTracker.gd" id="1_ck5j5"]
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/monster_ai.gd" id="1_yguvp"]

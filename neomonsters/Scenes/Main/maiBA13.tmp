@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/MoodBar.gd" id="6_70q2e"]
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/HungerBar.gd" id="6_sdll8"]
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/SleepBar.gd" id="7_symk1"]
-[ext_resource type="PackedScene" uid="uid://blfvxl8ygxe5r" path="res://Scenes/NeoMonsters/Blue_Monster.tscn" id="8_kr3of"]
+[ext_resource type="PackedScene" path="res://Scenes/NeoMonsters/Blue_Monster.tscn" id="8_kr3of"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ok5cs"]
 shader = ExtResource("1_q1ess")
@@ -116,7 +116,7 @@ position = Vector2(1398, 784)
 
 [node name="MoodBar" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="MoodBar" node_paths=PackedStringArray("monsterStats")]
+[node name="ProgressBar" type="ProgressBar" parent="MoodBar"]
 offset_left = 75.0
 offset_top = 37.0
 offset_right = 467.0
@@ -124,7 +124,7 @@ offset_bottom = 64.0
 theme_override_styles/background = SubResource("StyleBoxFlat_kx5gd")
 value = 100.0
 script = ExtResource("6_70q2e")
-monsterStats = NodePath("../../BlueMonster")
+monsterStats = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MoodBar"]
 offset_left = 1.0
@@ -136,7 +136,7 @@ text = "Mood:"
 
 [node name="SleepBar" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="SleepBar" node_paths=PackedStringArray("monsterStats")]
+[node name="ProgressBar" type="ProgressBar" parent="SleepBar"]
 offset_left = 75.0
 offset_top = 73.0
 offset_right = 467.0
@@ -144,7 +144,7 @@ offset_bottom = 100.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_by336")
 value = 100.0
 script = ExtResource("7_symk1")
-monsterStats = NodePath("../../BlueMonster")
+monsterStats = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SleepBar"]
 offset_left = 1.0
@@ -156,14 +156,14 @@ text = "Energy:"
 
 [node name="HungerBar" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="HungerBar" node_paths=PackedStringArray("monsterStats")]
+[node name="ProgressBar" type="ProgressBar" parent="HungerBar"]
 offset_left = 74.0
 offset_right = 466.0
 offset_bottom = 27.0
 theme_override_styles/background = SubResource("StyleBoxFlat_pqbww")
 value = 100.0
 script = ExtResource("6_sdll8")
-monsterStats = NodePath("../../BlueMonster")
+monsterStats = null
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HungerBar"]
 offset_right = 80.0
@@ -172,4 +172,4 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Hunger:"
 
 [node name="BlueMonster" parent="." instance=ExtResource("8_kr3of")]
-position = Vector2(177, 658)
+position = Vector2(179, 653)
