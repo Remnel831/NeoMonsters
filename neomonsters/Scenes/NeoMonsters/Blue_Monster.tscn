@@ -230,7 +230,7 @@ material = SubResource("ShaderMaterial_nokcq")
 sprite_frames = SubResource("SpriteFrames_ye6ew")
 animation = &"Idle_Animation"
 autoplay = "Idle_Animation"
-frame_progress = 0.631746
+frame_progress = 0.642556
 
 [node name="Face" type="AnimatedSprite2D" parent="CharacterBody2D"]
 material = SubResource("ShaderMaterial_73lg3")

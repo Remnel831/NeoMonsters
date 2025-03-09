@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ejbmjjlw2xr"]
+
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/HungerBar.gd" id="1_d0jhb"]
+
+[node name="HungerBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HungerBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 69.0
+offset_right = 453.0
+offset_bottom = 27.0
+value = 100.0
+fill_mode = 1
+script = ExtResource("1_d0jhb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_right = 96.0
+offset_bottom = 40.0
+text = "Hunger:"

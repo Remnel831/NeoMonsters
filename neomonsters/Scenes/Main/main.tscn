@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4kof5lgl54xw"]
+[gd_scene load_steps=20 format=3 uid="uid://c4kof5lgl54xw"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_q1ess"]
 [ext_resource type="PackedScene" uid="uid://ce4rdi5h0b4ic" path="res://Scenes/UI/Main/ui.tscn" id="1_rmcm8"]
 [ext_resource type="PackedScene" uid="uid://kh10dl7fp4hs" path="res://Scenes/Objects/chair.tscn" id="2_nqyh8"]
 [ext_resource type="PackedScene" uid="uid://cdhorq8ikiwr" path="res://Scenes/Objects/Furniture/Bed/Bed_Furniture.tscn" id="4_bubpi"]
-[ext_resource type="PackedScene" uid="uid://8oa4jex8jxbc" path="res://Scenes/NeoMonsters/blue_monster_test.tscn" id="4_ulhr7"]
+[ext_resource type="PackedScene" uid="uid://8oa4jex8jxbc" path="res://Scenes/NeoMonsters/Blue_Monster.tscn" id="4_ulhr7"]
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/MoodBar.gd" id="6_70q2e"]
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/HungerBar.gd" id="6_sdll8"]
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/SleepBar.gd" id="7_symk1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ok5cs"]
 shader = ExtResource("1_q1ess")
@@ -44,9 +47,37 @@ frequency = 0.1328
 color_ramp = SubResource("Gradient_5nfc3")
 noise = SubResource("FastNoiseLite_wcyl3")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx5gd"]
+bg_color = Color(0, 0.66719, 0.806939, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by336"]
+bg_color = Color(3.32102e-06, 0.692026, 0.2281, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqbww"]
+bg_color = Color(1, 0, 0.223529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
 [node name="Main" type="Node2D" groups=["Food"]]
 
 [node name="UI" parent="." instance=ExtResource("1_rmcm8")]
+visible = false
 offset_left = 499.0
 offset_top = 477.0
 offset_right = 499.0
@@ -85,3 +116,60 @@ position = Vector2(160, 673)
 
 [node name="BedFurniture" parent="." instance=ExtResource("4_bubpi")]
 position = Vector2(1398, 784)
+
+[node name="MoodBar" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="MoodBar" node_paths=PackedStringArray("monsterStats")]
+offset_left = 75.0
+offset_top = 37.0
+offset_right = 467.0
+offset_bottom = 64.0
+theme_override_styles/background = SubResource("StyleBoxFlat_kx5gd")
+value = 100.0
+script = ExtResource("6_70q2e")
+monsterStats = NodePath("../../BlueMonster")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MoodBar"]
+offset_left = 1.0
+offset_top = 37.0
+offset_right = 81.0
+offset_bottom = 77.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Mood:"
+
+[node name="SleepBar" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="SleepBar" node_paths=PackedStringArray("monsterStats")]
+offset_left = 75.0
+offset_top = 73.0
+offset_right = 467.0
+offset_bottom = 100.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_by336")
+value = 100.0
+script = ExtResource("7_symk1")
+monsterStats = NodePath("../../BlueMonster")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SleepBar"]
+offset_left = 1.0
+offset_top = 75.0
+offset_right = 62.0
+offset_bottom = 104.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Energy:"
+
+[node name="HungerBar" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="HungerBar" node_paths=PackedStringArray("monsterStats")]
+offset_left = 74.0
+offset_right = 466.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_pqbww")
+value = 100.0
+script = ExtResource("6_sdll8")
+monsterStats = NodePath("../../BlueMonster")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HungerBar"]
+offset_right = 80.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Hunger:"

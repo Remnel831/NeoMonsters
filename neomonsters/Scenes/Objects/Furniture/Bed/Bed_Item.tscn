@@ -104,7 +104,7 @@ size = Vector2(358, 158)
 material = SubResource("ShaderMaterial_csbqx")
 sprite_frames = SubResource("SpriteFrames_dui02")
 animation = &"BedItemSpin"
-frame_progress = 0.578479
+frame_progress = 0.615891
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 visible = false
