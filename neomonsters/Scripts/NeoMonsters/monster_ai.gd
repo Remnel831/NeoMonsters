@@ -114,7 +114,8 @@ func check_jump_condition():
 func jump():
 	if is_on_floor():
 		self.velocity.y = randi_range(JUMP_FORCE_MIN, JUMP_FORCE_MAX)
-
+		#_animated_sprite_body.play("Jump")
+		#_animated_sprite_body.play("Idle_Animation")
 func status_check_loop():
 	while true:
 		await get_tree().create_timer(STATUS_CHECK_INTERVAL).timeout
