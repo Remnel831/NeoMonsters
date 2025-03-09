@@ -6,9 +6,13 @@ extends Node2D
 var total_coins = 0
 var max_coins = 10
 var coins = []
+var scene_exiting = false  # Flag to check if the scene is being freed
 
 func _ready():
 	spawn_coins()
+
+func _exit_tree():
+	scene_exiting = true  # Set the flag when the scene starts to free
 
 func spawn_coins():
 	var platform_list = platforms.get_children()
@@ -41,10 +45,16 @@ func spawn_coins():
 		coin_instance.area.connect("tree_exited", Callable(self, "_on_coin_removed").bind(coin_instance))
 
 func _on_coin_removed(coin_instance):
+	if scene_exiting:
+		return  # Prevent triggering reset if the scene is being freed
+
 	coins.erase(coin_instance)
+	Global.coinsCollected += 1
 	if coins.is_empty():
 		reset_game()
 
 func reset_game():
-	await get_tree().create_timer(5).timeout  # Small delay before resetting
-	get_tree().reload_current_scene()  # Reload scene to reset everything
+	if get_tree():  # Check if get_tree() is still valid before using it
+		await get_tree().create_timer(5).timeout  # Small delay before resetting
+		Global.coinsCollected = 0
+		get_tree().reload_current_scene()  # Reload scene to reset everything

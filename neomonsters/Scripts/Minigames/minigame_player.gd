@@ -26,3 +26,10 @@ func _physics_process(delta):
 	# Ensure the camera follows the player
 	if camera:
 		camera.global_position = global_position
+
+func _process(_delta):
+	$Points.text = "COINS: " + str(Global.coinsCollected) + " / 10" + "\nPOINTS: " + str(Global.point)
+
+
+func _on_exit_btn_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Main/main.tscn")
