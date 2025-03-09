@@ -218,9 +218,5 @@ text = "Hunger:"
 position = Vector2(141, 670)
 
 [node name="MinigameBtn" type="Button" parent="."]
-offset_left = 1377.0
-offset_right = 1597.0
-offset_bottom = 68.0
-text = "Play Minigame"
-
-[connection signal="pressed" from="MinigameBtn" to="." method="_on_minigame_btn_pressed"]
+offset_right = 8.0
+offset_bottom = 8.0
