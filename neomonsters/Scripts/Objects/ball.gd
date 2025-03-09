@@ -14,7 +14,7 @@ func _ready():
 
 	if not rb:
 		print("⚠ Warning: No RigidBody2D found in Ball node!")
-
+	ball_spawned.emit()
 	emit_signal("ball_spawned")
 
 func _process(_delta):

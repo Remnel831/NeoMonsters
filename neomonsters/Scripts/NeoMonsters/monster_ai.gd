@@ -1,5 +1,6 @@
 extends CharacterBody2D
-@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _animated_sprite_body = get_node("Body")
+@onready var _animated_sprite_face = get_node("Face")
 
 const GRAVITY = 980
 const SPEED = 300
@@ -36,7 +37,7 @@ var idle_jump_timer = null  # Timer for random jumps
 func _ready():
 	position.x = clamp(position.x, MIN_X, MAX_X)
 	#adding idle animation here
-	_animated_sprite.play("IdleAnimation")
+
 
 	# Timers for wandering and jumping in idle mode
 	idle_wait_timer = Timer.new()
@@ -171,3 +172,13 @@ func apply_force_to_collided_object():
 
 		elif collider is RigidBody2D:
 			collider.apply_impulse(Vector2(FORCE_ON_COLLISION * direction, 0))
+			
+			
+func play_grumpy_Face():
+	_animated_sprite_face.play("Grumpy_Face")
+func play_hungry_Face():
+	_animated_sprite_face.play("Hungry_Face")
+func play_sleepy_Face():
+	_animated_sprite_face.play("Sleepy_Face")
+func play_idle_Face():
+	_animated_sprite_face.play("Idle_Face")	

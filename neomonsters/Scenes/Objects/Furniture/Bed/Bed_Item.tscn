@@ -1,0 +1,112 @@
+[gd_scene load_steps=24 format=3 uid="uid://ujspongm40gn"]
+
+[ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_eh4l8"]
+[ext_resource type="Texture2D" uid="uid://bgtnfh6nn3wkr" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame1.png" id="2_qw68b"]
+[ext_resource type="Texture2D" uid="uid://b2v2jgr1ft6sm" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame2.png" id="3_kvi7o"]
+[ext_resource type="Texture2D" uid="uid://bmkuul3usxc5" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame3.png" id="4_3frmf"]
+[ext_resource type="Texture2D" uid="uid://cec0hwsdu574x" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame4.png" id="5_4vg75"]
+[ext_resource type="Texture2D" uid="uid://dw7mbrmp5lgou" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame5.png" id="6_sj7ug"]
+[ext_resource type="Texture2D" uid="uid://bifed3aemwv4d" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame6.png" id="7_bc45p"]
+[ext_resource type="Texture2D" uid="uid://c3c6wd3yib84i" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame7.png" id="8_txsj3"]
+[ext_resource type="Texture2D" uid="uid://bssr1u62jj1n1" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame8.png" id="9_36qn1"]
+[ext_resource type="Texture2D" uid="uid://f1g0a2tshkxv" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame9.png" id="10_uw3y6"]
+[ext_resource type="Texture2D" uid="uid://d1h813jirhnhi" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame10.png" id="11_7jpsr"]
+[ext_resource type="Texture2D" uid="uid://edxjxwunldjg" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame11.png" id="12_tl3xx"]
+[ext_resource type="Texture2D" uid="uid://cty2fp1at271w" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame12.png" id="13_l6us5"]
+[ext_resource type="Texture2D" uid="uid://dgmchkb0i7s7b" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame13.png" id="14_qe173"]
+[ext_resource type="Texture2D" uid="uid://b8il71q2l8wcj" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame14.png" id="15_q8t1u"]
+[ext_resource type="Texture2D" uid="uid://c1omvnbthhmf" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame15.png" id="16_o5ll0"]
+[ext_resource type="Texture2D" uid="uid://cemucftjjwygj" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame16.png" id="17_4hh3d"]
+[ext_resource type="Texture2D" uid="uid://basjx4hm4kvhr" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame17.png" id="18_u3qy8"]
+[ext_resource type="Texture2D" uid="uid://kfqppv15p0d6" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame18.png" id="19_x33tb"]
+[ext_resource type="Texture2D" uid="uid://bllk83k4qrnoj" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_SideFrame19.png" id="20_6nbfm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_csbqx"]
+shader = ExtResource("1_eh4l8")
+shader_parameter/x_pixel_size = 6
+shader_parameter/y_pixel_size = 6
+shader_parameter/noise_intensity = 0.5
+shader_parameter/seed = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dui02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qw68b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kvi7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3frmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4vg75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sj7ug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bc45p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_txsj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_36qn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_uw3y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7jpsr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tl3xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l6us5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qe173")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_q8t1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_o5ll0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4hh3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_u3qy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_x33tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6nbfm")
+}],
+"loop": true,
+"name": &"BedItemSpin",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mggoq"]
+size = Vector2(358, 158)
+
+[node name="BedItem" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+material = SubResource("ShaderMaterial_csbqx")
+sprite_frames = SubResource("SpriteFrames_dui02")
+animation = &"BedItemSpin"
+frame_progress = 0.578479
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visible = false
+position = Vector2(7, 9)
+shape = SubResource("RectangleShape2D_mggoq")

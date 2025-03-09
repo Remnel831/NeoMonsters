@@ -1,15 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4kof5lgl54xw"]
+[gd_scene load_steps=14 format=3 uid="uid://c4kof5lgl54xw"]
 
-[ext_resource type="Script" path="res://Scripts/Main/main.gd" id="1_cqu8g"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_q1ess"]
+[ext_resource type="PackedScene" uid="uid://ce4rdi5h0b4ic" path="res://Scenes/UI/Main/ui.tscn" id="1_rmcm8"]
 [ext_resource type="PackedScene" uid="uid://kh10dl7fp4hs" path="res://Scenes/Objects/chair.tscn" id="2_nqyh8"]
-[ext_resource type="PackedScene" uid="uid://ctkqalwqfjcw5" path="res://Scenes/Objects/lamp.tscn" id="3_ly228"]
+[ext_resource type="PackedScene" uid="uid://cdhorq8ikiwr" path="res://Scenes/Objects/Furniture/Bed/Bed_Furniture.tscn" id="4_bubpi"]
 [ext_resource type="PackedScene" uid="uid://8oa4jex8jxbc" path="res://Scenes/NeoMonsters/blue_monster_test.tscn" id="4_ulhr7"]
-[ext_resource type="PackedScene" uid="uid://b3xce5dcfwyc4" path="res://Scenes/Objects/table.tscn" id="5_4xufa"]
-[ext_resource type="PackedScene" uid="uid://bi8cf2whbbpn7" path="res://Scenes/Objects/framed_picture2.tscn" id="6_ock8p"]
-[ext_resource type="PackedScene" uid="uid://c72utx87hq0mw" path="res://Scenes/Objects/framed_picture.tscn" id="7_ra8wv"]
-[ext_resource type="PackedScene" uid="uid://duvu1g25ocmsi" path="res://Scenes/Objects/light_switch.tscn" id="8_j3eh1"]
-[ext_resource type="PackedScene" uid="uid://bo7pddt5mlhis" path="res://Scenes/Objects/toy_barrel.tscn" id="10_817ks"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ok5cs"]
 shader = ExtResource("1_q1ess")
@@ -49,18 +44,13 @@ frequency = 0.1328
 color_ramp = SubResource("Gradient_5nfc3")
 noise = SubResource("FastNoiseLite_wcyl3")
 
-[sub_resource type="Gradient" id="Gradient_4d5tp"]
-offsets = PackedFloat32Array(0, 0.720779, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.37013, 0.37013, 0.37013, 1, 0, 0, 0, 1)
+[node name="Main" type="Node2D" groups=["Food"]]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8c2wl"]
-gradient = SubResource("Gradient_4d5tp")
-fill = 1
-fill_from = Vector2(0.513761, 0)
-fill_to = Vector2(0.504587, 1)
-
-[node name="Main" type="Node2D"]
-script = ExtResource("1_cqu8g")
+[node name="UI" parent="." instance=ExtResource("1_rmcm8")]
+offset_left = 499.0
+offset_top = 477.0
+offset_right = 499.0
+offset_bottom = 477.0
 
 [node name="Background" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ok5cs")
@@ -70,25 +60,8 @@ offset_bottom = 900.0
 texture = SubResource("NoiseTexture2D_fwv48")
 stretch_mode = 1
 
-[node name="FramedPicture" parent="." instance=ExtResource("6_ock8p")]
-position = Vector2(402, 414)
-scale = Vector2(2, 2)
-
-[node name="FramedPicture2" parent="." instance=ExtResource("7_ra8wv")]
-position = Vector2(955, 376)
-scale = Vector2(2, 2)
-
-[node name="LightSwitch" parent="." instance=ExtResource("8_j3eh1")]
-position = Vector2(194, 367)
-
-[node name="LampBackground" parent="." instance=ExtResource("3_ly228")]
-position = Vector2(580, 829)
-
 [node name="ChairBackground" parent="." instance=ExtResource("2_nqyh8")]
-position = Vector2(1195, 720)
-
-[node name="TableBackground" parent="." instance=ExtResource("5_4xufa")]
-position = Vector2(1024, 672)
+position = Vector2(879, 713)
 
 [node name="Ground" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_7ang7")
@@ -110,10 +83,5 @@ polygon = PackedVector2Array(-816.5, -33, 840.5, -33, 1123.5, -1362, -1033.5, -1
 [node name="BlueMonster" parent="." instance=ExtResource("4_ulhr7")]
 position = Vector2(160, 673)
 
-[node name="ToyBarrel" parent="." instance=ExtResource("10_817ks")]
-position = Vector2(1507, 738)
-
-[node name="Lights" type="PointLight2D" parent="."]
-position = Vector2(783, 435.5)
-scale = Vector2(25.4688, 14.6094)
-texture = SubResource("GradientTexture2D_8c2wl")
+[node name="BedFurniture" parent="." instance=ExtResource("4_bubpi")]
+position = Vector2(1398, 784)

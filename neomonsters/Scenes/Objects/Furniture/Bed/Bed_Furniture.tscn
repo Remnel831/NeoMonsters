@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdhorq8ikiwr"]
+
+[ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_pbjh8"]
+[ext_resource type="Texture2D" uid="uid://bt8a76kude2r" path="res://Assets/Furniture-WorldBlocks/Raws/Bed/Bed_CloseUp_Side.png" id="2_jgxyt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_noj7e"]
+shader = ExtResource("1_pbjh8")
+shader_parameter/x_pixel_size = 6
+shader_parameter/y_pixel_size = 6
+shader_parameter/noise_intensity = 0.5
+shader_parameter/seed = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyoa5"]
+size = Vector2(395, 109)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rrie"]
+size = Vector2(20, 181)
+
+[node name="BedFurniture" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-249, -218)
+
+[node name="BedSideCloseupPixel" type="Sprite2D" parent="StaticBody2D"]
+material = SubResource("ShaderMaterial_noj7e")
+position = Vector2(248, 174)
+texture = ExtResource("2_jgxyt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(250.5, 216.5)
+shape = SubResource("RectangleShape2D_wyoa5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(65, 184)
+shape = SubResource("RectangleShape2D_0rrie")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(438, 185)
+shape = SubResource("RectangleShape2D_0rrie")

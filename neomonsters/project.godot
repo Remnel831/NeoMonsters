@@ -33,9 +33,14 @@ folder_colors={
 "res://Scripts/": "blue"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 ball=""
+Food=""
 
 [rendering]
 

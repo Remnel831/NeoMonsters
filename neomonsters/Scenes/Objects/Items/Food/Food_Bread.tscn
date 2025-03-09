@@ -1,84 +1,93 @@
-[gd_scene load_steps=22 format=3 uid="uid://ccpfhuxc4hyxg"]
+[gd_scene load_steps=25 format=3 uid="uid://ccpfhuxc4hyxg"]
 
-[ext_resource type="Texture2D" uid="uid://uv5oaklwaspy" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame1.png" id="1_wi1t3"]
-[ext_resource type="Texture2D" uid="uid://cvknld8mgwcfj" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame2.png" id="2_wsuah"]
-[ext_resource type="Texture2D" uid="uid://buow0vxhqf0qe" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame3.png" id="3_5iov2"]
-[ext_resource type="Texture2D" uid="uid://cqv76xqu0g5hs" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame4.png" id="4_3wfx3"]
-[ext_resource type="Texture2D" uid="uid://dsq8ocxbkbyme" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame5.png" id="5_y1eje"]
-[ext_resource type="Texture2D" uid="uid://m4tpyixv3gnc" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame6.png" id="6_mdqiw"]
-[ext_resource type="Texture2D" uid="uid://cfw264i61uml4" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame7.png" id="7_tsnbg"]
-[ext_resource type="Texture2D" uid="uid://b61r2plv2h5gg" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame8.png" id="8_l5oeu"]
-[ext_resource type="Texture2D" uid="uid://kk1cq868n7yv" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame9.png" id="9_y5h28"]
-[ext_resource type="Texture2D" uid="uid://ci77m0p7ihpwe" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame10.png" id="10_17iki"]
-[ext_resource type="Texture2D" uid="uid://dd6yaaeatlply" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame11.png" id="11_5mb54"]
-[ext_resource type="Texture2D" uid="uid://ckhw55otsfcbf" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame12.png" id="12_6dbkk"]
-[ext_resource type="Texture2D" uid="uid://cvishv3b3vjuw" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame13.png" id="13_85bri"]
-[ext_resource type="Texture2D" uid="uid://bexuaksjcw477" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame14.png" id="14_5v6qr"]
-[ext_resource type="Texture2D" uid="uid://ijayi0jag6xn" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame15.png" id="15_8otnu"]
-[ext_resource type="Texture2D" uid="uid://d0y77itxe33k6" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame16.png" id="16_esqvw"]
-[ext_resource type="Texture2D" uid="uid://dxung7hw8gj8r" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame17.png" id="17_v67li"]
-[ext_resource type="Texture2D" uid="uid://hkmuidwufux7" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame18.png" id="18_6b5l3"]
-[ext_resource type="Texture2D" uid="uid://brb3exk2hrkq1" path="res://Assets/Items/Food/Textures/BreadPixel/Bread_Pixel_Frame19.png" id="19_eb027"]
+[ext_resource type="Script" path="res://food_item.gd" id="1_0ycxh"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_ngwdi"]
+[ext_resource type="Texture2D" uid="uid://be2y4qrq2bf1v" path="res://Assets/Items/Food/Textures/Bread/BreadFrame1.png" id="2_b2q08"]
+[ext_resource type="Texture2D" uid="uid://byjeg47d1h1by" path="res://Assets/Items/Food/Textures/Bread/BreadFrame2.png" id="3_ngns3"]
+[ext_resource type="Texture2D" uid="uid://dpnlp0caqyppu" path="res://Assets/Items/Food/Textures/Bread/BreadFrame3.png" id="4_aam2u"]
+[ext_resource type="Texture2D" uid="uid://3ifkospbnn81" path="res://Assets/Items/Food/Textures/Bread/BreadFrame4.png" id="5_wlty4"]
+[ext_resource type="Texture2D" uid="uid://dpj4c45xnivt7" path="res://Assets/Items/Food/Textures/Bread/BreadFrame5.png" id="6_c2ng0"]
+[ext_resource type="Texture2D" uid="uid://vtetkhk7pti4" path="res://Assets/Items/Food/Textures/Bread/BreadFrame6.png" id="7_dj4a7"]
+[ext_resource type="Texture2D" uid="uid://csenssqbpml0v" path="res://Assets/Items/Food/Textures/Bread/BreadFrame7.png" id="8_44xlt"]
+[ext_resource type="Texture2D" uid="uid://bi17ietrvad0r" path="res://Assets/Items/Food/Textures/Bread/BreadFrame8.png" id="9_dkbn4"]
+[ext_resource type="Texture2D" uid="uid://cegdk0difh51u" path="res://Assets/Items/Food/Textures/Bread/BreadFrame9.png" id="10_d58x2"]
+[ext_resource type="Texture2D" uid="uid://cialf3n23f7os" path="res://Assets/Items/Food/Textures/Bread/BreadFrame10.png" id="11_cekoy"]
+[ext_resource type="Texture2D" uid="uid://b0eg3r1qo2bce" path="res://Assets/Items/Food/Textures/Bread/BreadFrame11.png" id="12_ybrjn"]
+[ext_resource type="Texture2D" uid="uid://bme3x2061vt3r" path="res://Assets/Items/Food/Textures/Bread/BreadFrame12.png" id="13_bww36"]
+[ext_resource type="Texture2D" uid="uid://dxqqkvfbaduyu" path="res://Assets/Items/Food/Textures/Bread/BreadFrame13.png" id="14_k1b6e"]
+[ext_resource type="Texture2D" uid="uid://dy3xuby1dxdnh" path="res://Assets/Items/Food/Textures/Bread/BreadFrame14.png" id="15_uxguk"]
+[ext_resource type="Texture2D" uid="uid://ncen5ksdnesv" path="res://Assets/Items/Food/Textures/Bread/BreadFrame15.png" id="16_wm8fh"]
+[ext_resource type="Texture2D" uid="uid://bmrgc3ycypm5b" path="res://Assets/Items/Food/Textures/Bread/BreadFrame16.png" id="17_b1e08"]
+[ext_resource type="Texture2D" uid="uid://duq3hcv3iov8y" path="res://Assets/Items/Food/Textures/Bread/BreadFrame17.png" id="18_y6g2i"]
+[ext_resource type="Texture2D" uid="uid://b0dcjumhpgeit" path="res://Assets/Items/Food/Textures/Bread/BreadFrame18.png" id="19_52m2t"]
+[ext_resource type="Texture2D" uid="uid://d4ifp8jippx3h" path="res://Assets/Items/Food/Textures/Bread/BreadFrame19.png" id="20_skm4e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8hd7w"]
+shader = ExtResource("1_ngwdi")
+shader_parameter/x_pixel_size = 6
+shader_parameter/y_pixel_size = 6
+shader_parameter/noise_intensity = 0.5
+shader_parameter/seed = 0.5
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hevbk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_wi1t3")
+"texture": ExtResource("2_b2q08")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_wsuah")
+"texture": ExtResource("3_ngns3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5iov2")
+"texture": ExtResource("4_aam2u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_3wfx3")
+"texture": ExtResource("5_wlty4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_y1eje")
+"texture": ExtResource("6_c2ng0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_mdqiw")
+"texture": ExtResource("7_dj4a7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_tsnbg")
+"texture": ExtResource("8_44xlt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_l5oeu")
+"texture": ExtResource("9_dkbn4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_y5h28")
+"texture": ExtResource("10_d58x2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_17iki")
+"texture": ExtResource("11_cekoy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_5mb54")
+"texture": ExtResource("12_ybrjn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_6dbkk")
+"texture": ExtResource("13_bww36")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_85bri")
+"texture": ExtResource("14_k1b6e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_5v6qr")
+"texture": ExtResource("15_uxguk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_8otnu")
+"texture": ExtResource("16_wm8fh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_esqvw")
+"texture": ExtResource("17_b1e08")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_v67li")
+"texture": ExtResource("18_y6g2i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_6b5l3")
+"texture": ExtResource("19_52m2t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_eb027")
+"texture": ExtResource("20_skm4e")
 }],
 "loop": true,
 "name": &"default",
@@ -88,13 +97,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlmi5"]
 size = Vector2(148, 191)
 
-[node name="Bread" type="Node2D"]
+[node name="Bread" type="Node2D" groups=["Food"]]
+script = ExtResource("1_0ycxh")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+material = SubResource("ShaderMaterial_8hd7w")
 sprite_frames = SubResource("SpriteFrames_hevbk")
-frame_progress = 0.99663
+frame_progress = 0.156841
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(14, 9.5)
