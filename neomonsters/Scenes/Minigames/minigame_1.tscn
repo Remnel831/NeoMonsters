@@ -91,9 +91,6 @@ offset_right = 4593.0
 offset_bottom = 1218.0
 texture = SubResource("PlaceholderTexture2D_hcll0")
 
-[node name="Player" parent="." instance=ExtResource("3_oiibr")]
-position = Vector2(152, 760)
-
 [node name="Border" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
@@ -173,3 +170,6 @@ position = Vector2(3433, 135)
 
 [node name="GrassPlatform16" parent="Platforms" instance=ExtResource("4_3pquo")]
 position = Vector2(2909, -147)
+
+[node name="Player" parent="." instance=ExtResource("3_oiibr")]
+position = Vector2(152, 760)

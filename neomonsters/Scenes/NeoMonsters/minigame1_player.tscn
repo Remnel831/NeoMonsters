@@ -18,6 +18,27 @@ gradient = SubResource("Gradient_o26xm")
 platform_floor_layers = 4294901760
 script = ExtResource("1_xud8t")
 
+[node name="Points" type="TextEdit" parent="CharacterBody2D"]
+visibility_layer = 3
+offset_left = 627.0
+offset_top = -451.0
+offset_right = 800.0
+offset_bottom = -376.0
+theme_override_colors/background_color = Color(0.921569, 0.823529, 0.427451, 0.207843)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 16
+text = "POINTS: "
+placeholder_text = "POINTS: "
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_ikv8f")
@@ -28,3 +49,16 @@ scale = Vector2(1.17188, 1.92188)
 texture = SubResource("GradientTexture2D_vbke6")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="ExitBtn" type="Button" parent="CharacterBody2D"]
+offset_left = 635.0
+offset_top = 378.0
+offset_right = 801.0
+offset_bottom = 449.0
+theme_override_colors/font_pressed_color = Color(0.703656, 0.68174, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 45
+text = "EXIT"
+
+[connection signal="pressed" from="CharacterBody2D/ExitBtn" to="CharacterBody2D" method="_on_exit_btn_pressed"]
