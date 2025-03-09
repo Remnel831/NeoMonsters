@@ -4,8 +4,8 @@
 [ext_resource type="Shader" path="res://Scripts/Shaders/godrays.gdshader" id="1_kn7gc"]
 [ext_resource type="Script" path="res://Scripts/Minigames/minigame_1.gd" id="1_v7ovj"]
 [ext_resource type="PackedScene" uid="uid://b0lpsnp64ueru" path="res://Scenes/NeoMonsters/minigame1_player.tscn" id="3_oiibr"]
-[ext_resource type="PackedScene" uid="uid://bh3sgstwguha5" path="res://Scenes/Objects/grass_platform.tscn" id="4_3pquo"]
-[ext_resource type="PackedScene" uid="uid://dyikeihjqljhi" path="res://Scenes/Objects/coin.tscn" id="5_4p0xn"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/grass_platform.tscn" id="4_3pquo"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/coin.tscn" id="5_4p0xn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p7e78"]
 shader = ExtResource("1_3562e")

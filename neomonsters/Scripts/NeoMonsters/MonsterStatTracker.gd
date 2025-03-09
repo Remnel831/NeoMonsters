@@ -1,19 +1,23 @@
 extends Node
 class_name MonsterStats
 
-
+#Setting these as constants here.  Some monsters could have different max values to make differences more
+#than just visuals.
 const MAXHUNGER = 100
 const MAXMOOD = 100
 const MAXSLEEP = 100
 
+#Stats can't go negative.
 const MINSTAT = 0
 
+#How quickly the timers tick down.
 const HUNGERRATE = 10
 const MOODRATE = 15
 const SLEEPRATE = 20
 
 
-#starting these at one.  So it'll take about an hour for the pet to get hungry I think.  This can be tuned later
+#starting these at one.  So it'll take about an hour for the pet to get hungry I think.  
+#This can be tuned later
 var hungerdecrease = 1
 var mooddecrease = 1
 var sleepdecrease = 1
@@ -38,10 +42,12 @@ signal sleep_changed
 
 
 func hunger_timer():
+	#Starts the timer automatically and makes it restart when it hits 0
 	var hungryTimer = Timer.new()
 	hungryTimer.autostart = true
 	hungryTimer.wait_time = HUNGERRATE
 	add_child(hungryTimer)
+	#When it hits 0 the timer calls its matching tick function.
 	hungryTimer.timeout.connect(hunger_tick)
 
 func mood_timer():
@@ -58,6 +64,8 @@ func sleep_decrease_Timer():
 	add_child(tiredTimer)
 	tiredTimer.timeout.connect(sleep_tick)
 
+
+#not currently implemented.  Sleeping in a bed will restore a monsters energy.
 func sleep_increase_timer(bedRate):
 	if(currentSleep < MAXSLEEP):
 		while(currentSleep < MAXSLEEP):
@@ -69,14 +77,20 @@ func sleep_increase_timer(bedRate):
 
 	
 func hunger_tick():
+	#subtracts the decrease value from the current anytime the function is called.
 	currentHunger -= hungerdecrease
+	#calls the matching change signal to update the bars
 	hunger_changed.emit()
+	
+	#if hunger is above 0 the sleep decrease remains the normal 1%
 	if(currentHunger > 0):
 		sleepdecrease = 1
+		
 	elif(currentHunger <= 0):
 		currentHunger = 0
 		#if the monster is starving it starts to get tired faster.
 		sleepdecrease = 2
+		#emits the hungry signal to tell the face animation to play the hungry emote.
 		hungry_signal.emit()
 
 
@@ -102,9 +116,14 @@ func sleep_tick():
 		mooddecrease = 2
 		sleepy_signal.emit()
 
+#Takes the food value and adds it back to the current hunger.
 func feed_monster(foodvalue):
 	currentHunger += foodvalue
+	#prevents the monster from getting more food than its max.
+	if(currentHunger > MAXHUNGER):
+		currentHunger = MAXHUNGER
 
+#increases the mood based on the input.  Toys will passively add mood but minigames will add a lot more.
 func increase_mood(playValue):
 	currentMood += playValue
 
