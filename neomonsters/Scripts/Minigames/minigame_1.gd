@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var platforms = $Platforms  # Reference to the Platforms node
 @export var coin_scene: PackedScene  # Assign the Coin scene in the Inspector
-
+@onready var coinSound = get_node("CoinSound")
 var total_coins = 0
 var max_coins = 10
 var coins = []
@@ -50,6 +50,8 @@ func _on_coin_removed(coin_instance):
 
 	coins.erase(coin_instance)
 	Global.coinsCollected += 1
+	coinSound.play()
+	
 	if coins.is_empty():
 		reset_game()
 

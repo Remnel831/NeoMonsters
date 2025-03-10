@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://boelyv4h50vop"
+path="res://.godot/imported/pickup2.ogg-4612cd995ea070e994cf1e351eefff26.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Retro Sounds 1/Audio/pickup2.ogg"
+dest_files=["res://.godot/imported/pickup2.ogg-4612cd995ea070e994cf1e351eefff26.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

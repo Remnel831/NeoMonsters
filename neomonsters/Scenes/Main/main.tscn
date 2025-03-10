@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/HungerBar.gd" id="6_sdll8"]
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/SleepBar.gd" id="7_symk1"]
 [ext_resource type="PackedScene" uid="uid://bi8cf2whbbpn7" path="res://Scenes/Objects/framed_picture2.tscn" id="7_uo7r2"]
-[ext_resource type="PackedScene" path="res://Scenes/NeoMonsters/Blue_Monster.tscn" id="8_kr3of"]
+[ext_resource type="PackedScene" uid="uid://blfvxl8ygxe5r" path="res://Scenes/NeoMonsters/Blue_Monster.tscn" id="8_kr3of"]
 [ext_resource type="PackedScene" uid="uid://b3xce5dcfwyc4" path="res://Scenes/Objects/table.tscn" id="8_utbt5"]
 [ext_resource type="PackedScene" uid="uid://bo7pddt5mlhis" path="res://Scenes/Objects/toy_barrel.tscn" id="11_5bgde"]
 
