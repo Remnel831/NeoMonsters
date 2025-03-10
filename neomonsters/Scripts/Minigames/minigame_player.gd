@@ -3,16 +3,12 @@ extends CharacterBody2D
 const SPEED = 400.0
 const JUMP_VELOCITY = -800.0
 
-
-
-
-
-
-
-
 @onready var _animated_sprite_body = get_node("Body")
 @onready var _animated_sprite_face = get_node("Face")
 @onready var jump_Sound = get_node("JumpSound")
+@onready var points3 = get_node("Points3")
+@onready var points2 = get_node("Points2")
+
 @onready var camera = $Camera2D  # Reference to the attached Camera2D
 
 func _physics_process(delta):
@@ -40,8 +36,8 @@ func _physics_process(delta):
 	
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		_animated_sprite_body.play("Idle_Animation")
-		_animated_sprite_face.play("Idle_Face")
+	#	_animated_sprite_body.play("Idle_Animation")
+	#	_animated_sprite_face.play("Idle_Face")
 	move_and_slide()
 	
 	# Ensure the camera follows the player
@@ -49,8 +45,10 @@ func _physics_process(delta):
 		camera.global_position = global_position
 
 func _process(_delta):
-	$Points.text = "COINS: " + str(Global.coinsCollected) + " / 10" + "\nPOINTS: " + str(Global.point)
-
-
+	var coinsRemaining = 10 - Global.coinsCollected
+	#$Points.text = str(Global.coinsCollected) + " / 10" + "\nPOINTS: " + str(Global.point)
+	points2.text = str(Global.point)
+	points3.text = "Remaining: " + str(coinsRemaining)
+	
 func _on_exit_btn_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Main/main.tscn")

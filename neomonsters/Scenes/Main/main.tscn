@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4kof5lgl54xw"]
+[gd_scene load_steps=27 format=3 uid="uid://c4kof5lgl54xw"]
 
 [ext_resource type="Script" path="res://Scripts/Main/main.gd" id="1_etqp7"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_q1ess"]
@@ -7,37 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://duvu1g25ocmsi" path="res://Scenes/Objects/light_switch.tscn" id="3_re3tw"]
 [ext_resource type="PackedScene" uid="uid://cdhorq8ikiwr" path="res://Scenes/Objects/Furniture/Bed/Bed_Furniture.tscn" id="4_bubpi"]
 [ext_resource type="PackedScene" uid="uid://ctkqalwqfjcw5" path="res://Scenes/Objects/lamp.tscn" id="4_ixtcn"]
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/MoodBar.gd" id="6_70q2e"]
 [ext_resource type="PackedScene" uid="uid://c72utx87hq0mw" path="res://Scenes/Objects/framed_picture.tscn" id="6_pgc8t"]
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/HungerBar.gd" id="6_sdll8"]
+[ext_resource type="Script" path="res://Scripts/NeoMonsters/SleepBar.gd" id="7_symk1"]
 [ext_resource type="PackedScene" uid="uid://bi8cf2whbbpn7" path="res://Scenes/Objects/framed_picture2.tscn" id="7_uo7r2"]
 [ext_resource type="PackedScene" uid="uid://blfvxl8ygxe5r" path="res://Scenes/NeoMonsters/Blue_Monster.tscn" id="8_kr3of"]
 [ext_resource type="PackedScene" uid="uid://b3xce5dcfwyc4" path="res://Scenes/Objects/table.tscn" id="8_utbt5"]
 [ext_resource type="PackedScene" uid="uid://bo7pddt5mlhis" path="res://Scenes/Objects/toy_barrel.tscn" id="11_5bgde"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eegp"]
-bg_color = Color(0.359069, 0.359069, 0.359069, 0.686275)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.24, 0.24, 0.24, 0.521569)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-shadow_color = Color(0, 0, 0, 0.294118)
-shadow_size = 5
-shadow_offset = Vector2(2, 2)
-anti_aliasing = false
-
-[sub_resource type="FontFile" id="FontFile_vsna7"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-
-[sub_resource type="Theme" id="Theme_ee65n"]
-default_font = SubResource("FontFile_vsna7")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ok5cs"]
 shader = ExtResource("1_q1ess")
@@ -58,6 +35,22 @@ fractal_gain = 0.8
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fwv48"]
 color_ramp = SubResource("Gradient_iir7j")
 noise = SubResource("FastNoiseLite_om5vp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_coyrk"]
+bg_color = Color(0.359069, 0.359069, 0.359069, 0.686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.24, 0.24, 0.24, 0.521569)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.294118)
+shadow_size = 5
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
 
 [sub_resource type="Gradient" id="Gradient_6mfqk"]
 offsets = PackedFloat32Array(0, 0.181818, 0.883117, 1)
@@ -95,74 +88,6 @@ z_index = 3
 layout_mode = 3
 anchors_preset = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 478.0
-offset_bottom = 195.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_3eegp")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.00211864
-anchor_right = -0.00211864
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 463.0
-offset_bottom = 185.0
-theme_override_constants/separation = 9
-
-[node name="HungerProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer"]
-modulate = Color(0, 0.8892, 0.446528, 1)
-layout_mode = 2
-size_flags_stretch_ratio = 0.0
-value = 10.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Hunger"
-
-[node name="SleepProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer"]
-modulate = Color(0.499629, 0.870269, 0.90716, 1)
-layout_mode = 2
-value = 100.0
-
-[node name="Label2" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Sleep"
-
-[node name="MoodProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer"]
-modulate = Color(0.679452, 0.368255, 0.655944, 1)
-layout_mode = 2
-value = 100.0
-
-[node name="Label3" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Mood"
-
-[node name="MinigameBtn" type="Button" parent="CanvasLayer"]
-z_index = 10
-offset_left = 1451.0
-offset_top = 7.0
-offset_right = 1605.0
-offset_bottom = 139.0
-icon = ExtResource("2_xdvxl")
-flat = true
-expand_icon = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-modulate = Color(0.0576, 0.0632, 0.08, 1)
-offset_left = 1468.0
-offset_top = 147.0
-offset_right = 1655.0
-offset_bottom = 187.0
-theme = SubResource("Theme_ee65n")
-text = "Play Minigame"
-
 [node name="Background" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ok5cs")
 custom_minimum_size = Vector2(1600, 900)
@@ -194,6 +119,77 @@ scale = Vector2(2, 2)
 [node name="LampBackground" parent="." instance=ExtResource("4_ixtcn")]
 position = Vector2(792, 828)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="LampBackground"]
+
+[node name="Panel" type="Panel" parent="LampBackground/CanvasLayer"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 478.0
+offset_bottom = 157.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_coyrk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LampBackground/CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00211864
+anchor_right = -0.00211864
+offset_left = 9.99788
+offset_top = 10.0
+offset_right = 464.998
+offset_bottom = 187.0
+theme_override_constants/separation = 9
+
+[node name="HungerProgressBar" type="ProgressBar" parent="LampBackground/CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
+modulate = Color(0, 0.8892, 0.446528, 1)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+tooltip_text = "Your monster's hunger depends on his mood and sleep."
+value = 10.0
+show_percentage = false
+script = ExtResource("6_sdll8")
+monsterStats = NodePath("../../../../../BlueMonster")
+
+[node name="Label" type="Label" parent="LampBackground/CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Satiety"
+
+[node name="SleepProgressBar" type="ProgressBar" parent="LampBackground/CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
+modulate = Color(0.499629, 0.870269, 0.90716, 1)
+layout_mode = 2
+tooltip_text = "The more sleepy your monster is, the quicker he gets grumpy."
+value = 100.0
+show_percentage = false
+script = ExtResource("7_symk1")
+monsterStats = NodePath("../../../../../BlueMonster")
+
+[node name="Label2" type="Label" parent="LampBackground/CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Sleep"
+
+[node name="MoodProgressBar" type="ProgressBar" parent="LampBackground/CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
+modulate = Color(0.679452, 0.368255, 0.655944, 1)
+layout_mode = 2
+tooltip_text = "The more grumpy your monster is, the quicker he gets hungry."
+value = 100.0
+show_percentage = false
+script = ExtResource("6_70q2e")
+monsterStats = NodePath("../../../../../BlueMonster")
+
+[node name="Label3" type="Label" parent="LampBackground/CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Mood"
+
+[node name="MinigameBtn" type="Button" parent="LampBackground/CanvasLayer"]
+z_index = 10
+offset_left = 1451.0
+offset_top = 7.0
+offset_right = 1605.0
+offset_bottom = 139.0
+tooltip_text = "Play Minigame"
+icon = ExtResource("2_xdvxl")
+flat = true
+expand_icon = true
+
 [node name="Lights" type="PointLight2D" parent="."]
 position = Vector2(797, 451)
 scale = Vector2(25.2188, 14.4687)
@@ -222,4 +218,4 @@ position = Vector2(1398, 784)
 [node name="BlueMonster" parent="." instance=ExtResource("8_kr3of")]
 position = Vector2(141, 670)
 
-[connection signal="pressed" from="CanvasLayer/MinigameBtn" to="." method="_on_minigame_btn_pressed"]
+[connection signal="pressed" from="LampBackground/CanvasLayer/MinigameBtn" to="." method="_on_minigame_btn_pressed"]

@@ -1,5 +1,4 @@
 extends CharacterBody2D
-@onready var _animated_sprite_body = get_node("Body")
 @onready var _animated_sprite_face = get_node("Face")
 @onready var jump_Sound = get_node("JumpSound")
 const GRAVITY = 980
