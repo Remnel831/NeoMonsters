@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dgrxfp52ba1j4"]
+[gd_scene load_steps=25 format=3 uid="uid://ccpfhuxc4hyxg"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/food_item.gd" id="1_0ycxh"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_ngwdi"]

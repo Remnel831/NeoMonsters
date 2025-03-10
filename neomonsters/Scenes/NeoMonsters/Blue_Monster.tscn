@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://blfvxl8ygxe5r"]
+[gd_scene load_steps=35 format=3 uid="uid://blfvxl8ygxe5r"]
 
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/MonsterStatTracker.gd" id="1_ck5j5"]
 [ext_resource type="Script" path="res://Scripts/NeoMonsters/monster_ai.gd" id="1_yguvp"]
@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://bk8ie8umh8lwi" path="res://Assets/Monster1_Pixel_Art/Faces/Idle_Face/Monster1_Face_Idle_Frame4.png" id="26_chnq8"]
 [ext_resource type="Texture2D" uid="uid://cw3bv8322m70l" path="res://Assets/Monster1_Pixel_Art/Faces/Sleepy_Face/Monster1_Face_Sleepy_Frame1.png" id="27_rhajl"]
 [ext_resource type="Texture2D" uid="uid://bnl6sdkuljdwf" path="res://Assets/Monster1_Pixel_Art/Faces/Sleepy_Face/Monster1_Face_Sleepy_Frame2.png" id="28_0w0m7"]
-[ext_resource type="AudioStream" uid="uid://dsww52mo5ygx6" path="res://Assets/Sounds/Retro Sounds 1/Audio/jump1.ogg" id="30_483pi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikv8f"]
 size = Vector2(264, 314)
@@ -229,21 +228,16 @@ shape = SubResource("RectangleShape2D_ikv8f")
 [node name="Body" type="AnimatedSprite2D" parent="CharacterBody2D"]
 material = SubResource("ShaderMaterial_nokcq")
 sprite_frames = SubResource("SpriteFrames_ye6ew")
-animation = &"Walk_Left"
+animation = &"Idle_Animation"
 autoplay = "Idle_Animation"
-frame_progress = 0.759168
+frame_progress = 0.642556
 
 [node name="Face" type="AnimatedSprite2D" parent="CharacterBody2D"]
 material = SubResource("ShaderMaterial_73lg3")
 position = Vector2(-6, -7)
 sprite_frames = SubResource("SpriteFrames_glfwb")
-animation = &"Move_Left_Face"
+animation = &"Idle_Face"
 autoplay = "Idle_Face"
-
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
-position = Vector2(-152, -760)
-stream = ExtResource("30_483pi")
-volume_db = -9.789
 
 [connection signal="grumpy_signal" from="." to="CharacterBody2D" method="play_grumpy_Face"]
 [connection signal="hungry_signal" from="." to="CharacterBody2D" method="play_hungry_Face"]

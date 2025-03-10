@@ -1,9 +1,17 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=29 format=3 uid="uid://c4kof5lgl54xw"]
+=======
+[gd_scene load_steps=31 format=3 uid="uid://c4kof5lgl54xw"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Scripts/Main/main.gd" id="1_etqp7"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_q1ess"]
 [ext_resource type="PackedScene" uid="uid://ce4rdi5h0b4ic" path="res://Scenes/UI/Main/ui.tscn" id="1_rmcm8"]
 [ext_resource type="PackedScene" uid="uid://kh10dl7fp4hs" path="res://Scenes/Objects/chair.tscn" id="2_nqyh8"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Texture2D" uid="uid://d3sw4cxk3sf41" path="res://Assets/Sprites/Joystick.png" id="2_xdvxl"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://duvu1g25ocmsi" path="res://Scenes/Objects/light_switch.tscn" id="3_re3tw"]
 [ext_resource type="PackedScene" uid="uid://cdhorq8ikiwr" path="res://Scenes/Objects/Furniture/Bed/Bed_Furniture.tscn" id="4_bubpi"]
 [ext_resource type="PackedScene" uid="uid://ctkqalwqfjcw5" path="res://Scenes/Objects/lamp.tscn" id="4_ixtcn"]
@@ -91,6 +99,25 @@ border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 border_blend = true
 
+<<<<<<< Updated upstream
+=======
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eegp"]
+bg_color = Color(0.359069, 0.359069, 0.359069, 0.686275)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.24, 0.24, 0.24, 0.521569)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.294118)
+shadow_size = 5
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+>>>>>>> Stashed changes
 [node name="Main" type="Node2D" groups=["Food"]]
 script = ExtResource("1_etqp7")
 
@@ -158,6 +185,10 @@ polygon = PackedVector2Array(-816.5, -33, 840.5, -33, 1123.5, -1362, -1033.5, -1
 position = Vector2(1398, 784)
 
 [node name="MoodBar" type="CanvasLayer" parent="."]
+<<<<<<< Updated upstream
+=======
+visible = false
+>>>>>>> Stashed changes
 
 [node name="ProgressBar" type="ProgressBar" parent="MoodBar" node_paths=PackedStringArray("monsterStats")]
 offset_left = 75.0
@@ -178,8 +209,15 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Mood:"
 
 [node name="SleepBar" type="CanvasLayer" parent="."]
+<<<<<<< Updated upstream
 
 [node name="ProgressBar" type="ProgressBar" parent="SleepBar" node_paths=PackedStringArray("monsterStats")]
+=======
+visible = false
+
+[node name="ProgressBar" type="ProgressBar" parent="SleepBar" node_paths=PackedStringArray("monsterStats")]
+visible = false
+>>>>>>> Stashed changes
 offset_left = 75.0
 offset_top = 73.0
 offset_right = 467.0
@@ -198,6 +236,10 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Energy:"
 
 [node name="HungerBar" type="CanvasLayer" parent="."]
+<<<<<<< Updated upstream
+=======
+visible = false
+>>>>>>> Stashed changes
 
 [node name="ProgressBar" type="ProgressBar" parent="HungerBar" node_paths=PackedStringArray("monsterStats")]
 offset_left = 74.0
@@ -217,6 +259,7 @@ text = "Hunger:"
 [node name="BlueMonster" parent="." instance=ExtResource("8_kr3of")]
 position = Vector2(141, 670)
 
+<<<<<<< Updated upstream
 [node name="MinigameBtn" type="Button" parent="."]
 offset_left = 1377.0
 offset_right = 1597.0
@@ -224,3 +267,77 @@ offset_bottom = 68.0
 text = "Play Minigame"
 
 [connection signal="pressed" from="MinigameBtn" to="." method="_on_minigame_btn_pressed"]
+=======
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 478.0
+offset_bottom = 157.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3eegp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00211864
+anchor_right = -0.00211864
+offset_left = 9.99788
+offset_top = 10.0
+offset_right = 464.998
+offset_bottom = 187.0
+theme_override_constants/separation = 9
+
+[node name="HungerProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
+modulate = Color(0, 0.8892, 0.446528, 1)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+tooltip_text = "Your monster's hunger depends on his mood and sleep."
+value = 10.0
+show_percentage = false
+script = ExtResource("6_sdll8")
+monsterStats = NodePath("../../../../BlueMonster")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Satiety"
+
+[node name="SleepProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
+modulate = Color(0.499629, 0.870269, 0.90716, 1)
+layout_mode = 2
+tooltip_text = "The more sleepy your monster is, the quicker he gets grumpy."
+value = 100.0
+show_percentage = false
+script = ExtResource("7_symk1")
+monsterStats = NodePath("../../../../BlueMonster")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Sleep"
+
+[node name="MoodProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
+modulate = Color(0.679452, 0.368255, 0.655944, 1)
+layout_mode = 2
+tooltip_text = "The more grumpy your monster is, the quicker he gets hungry."
+value = 100.0
+show_percentage = false
+script = ExtResource("6_70q2e")
+monsterStats = NodePath("../../../../BlueMonster")
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Mood"
+
+[node name="MinigameBtn2" type="Button" parent="CanvasLayer"]
+z_index = 10
+offset_left = 1451.0
+offset_top = 7.0
+offset_right = 1605.0
+offset_bottom = 139.0
+tooltip_text = "Play minigame"
+icon = ExtResource("2_xdvxl")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="CanvasLayer/MinigameBtn2" to="." method="_on_minigame_btn_pressed"]
+>>>>>>> Stashed changes

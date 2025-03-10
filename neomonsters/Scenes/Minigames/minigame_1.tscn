@@ -1,12 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://bic4xogpcw7ut"]
+[gd_scene load_steps=17 format=3 uid="uid://bic4xogpcw7ut"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_3562e"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/godrays.gdshader" id="1_kn7gc"]
 [ext_resource type="Script" path="res://Scripts/Minigames/minigame_1.gd" id="1_v7ovj"]
 [ext_resource type="PackedScene" uid="uid://b0lpsnp64ueru" path="res://Scenes/NeoMonsters/minigame1_player.tscn" id="3_oiibr"]
 [ext_resource type="PackedScene" uid="uid://bh3sgstwguha5" path="res://Scenes/Objects/grass_platform.tscn" id="4_3pquo"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://bpcwf36fsuuos" path="res://Scenes/Objects/coin.tscn" id="5_4p0xn"]
 [ext_resource type="AudioStream" uid="uid://dag3q4gfq67tm" path="res://Assets/Sounds/Retro Sounds 1/Audio/pickup1.ogg" id="8_qdn42"]
+=======
+[ext_resource type="PackedScene" uid="uid://dyikeihjqljhi" path="res://Scenes/Objects/coin.tscn" id="5_4p0xn"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p7e78"]
 shader = ExtResource("1_3562e")
@@ -174,7 +178,3 @@ position = Vector2(2909, -147)
 
 [node name="Player" parent="." instance=ExtResource("3_oiibr")]
 position = Vector2(152, 760)
-
-[node name="CoinSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_qdn42")
-volume_db = -7.994

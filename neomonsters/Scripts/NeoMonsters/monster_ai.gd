@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var _animated_sprite_body = get_node("Body")
 @onready var _animated_sprite_face = get_node("Face")
-@onready var jump_Sound = get_node("JumpSound")
+
 const GRAVITY = 980
 const SPEED = 300
 const FORCE_ON_COLLISION = 200  # General push force
@@ -113,7 +113,6 @@ func check_jump_condition():
 
 func jump():
 	if is_on_floor():
-		jump_Sound.play()
 		self.velocity.y = randi_range(JUMP_FORCE_MIN, JUMP_FORCE_MAX)
 
 func status_check_loop():
