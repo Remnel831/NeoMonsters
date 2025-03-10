@@ -3,6 +3,13 @@ extends CharacterBody2D
 const SPEED = 400.0
 const JUMP_VELOCITY = -800.0
 
+
+
+
+
+
+
+
 @onready var _animated_sprite_body = get_node("Body")
 @onready var _animated_sprite_face = get_node("Face")
 @onready var jump_Sound = get_node("JumpSound")

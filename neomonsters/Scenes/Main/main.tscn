@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Main/main.gd" id="1_etqp7"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/pixelate.gdshader" id="1_q1ess"]
 [ext_resource type="PackedScene" uid="uid://kh10dl7fp4hs" path="res://Scenes/Objects/chair.tscn" id="2_nqyh8"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/Joystick.png" id="2_xdvxl"]
+[ext_resource type="Texture2D" uid="uid://825mg72djyy" path="res://Assets/Sprites/Joystick.png" id="2_xdvxl"]
 [ext_resource type="PackedScene" uid="uid://duvu1g25ocmsi" path="res://Scenes/Objects/light_switch.tscn" id="3_re3tw"]
 [ext_resource type="PackedScene" uid="uid://cdhorq8ikiwr" path="res://Scenes/Objects/Furniture/Bed/Bed_Furniture.tscn" id="4_bubpi"]
 [ext_resource type="PackedScene" uid="uid://ctkqalwqfjcw5" path="res://Scenes/Objects/lamp.tscn" id="4_ixtcn"]
