@@ -262,6 +262,7 @@ theme_override_constants/separation = 9
 modulate = Color(0, 0.8892, 0.446528, 1)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
+tooltip_text = "Your monster's hunger depends on his mood and sleep."
 value = 10.0
 show_percentage = false
 script = ExtResource("6_sdll8")
@@ -274,6 +275,7 @@ text = "Satiety"
 [node name="SleepProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
 modulate = Color(0.499629, 0.870269, 0.90716, 1)
 layout_mode = 2
+tooltip_text = "The more sleepy your monster is, the quicker he gets grumpy."
 value = 100.0
 show_percentage = false
 script = ExtResource("7_symk1")
@@ -286,6 +288,7 @@ text = "Sleep"
 [node name="MoodProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
 modulate = Color(0.679452, 0.368255, 0.655944, 1)
 layout_mode = 2
+tooltip_text = "The more grumpy your monster is, the quicker he gets hungry."
 value = 100.0
 show_percentage = false
 script = ExtResource("6_70q2e")
