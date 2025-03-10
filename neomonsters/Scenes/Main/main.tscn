@@ -244,7 +244,7 @@ position = Vector2(141, 670)
 offset_left = 7.0
 offset_top = 7.0
 offset_right = 478.0
-offset_bottom = 195.0
+offset_bottom = 157.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3eegp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
@@ -252,10 +252,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.00211864
 anchor_right = -0.00211864
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 463.0
-offset_bottom = 185.0
+offset_left = 9.99788
+offset_top = 10.0
+offset_right = 464.998
+offset_bottom = 187.0
 theme_override_constants/separation = 9
 
 [node name="HungerProgressBar" type="ProgressBar" parent="CanvasLayer/Panel/VBoxContainer" node_paths=PackedStringArray("monsterStats")]
@@ -275,6 +275,7 @@ text = "Satiety"
 modulate = Color(0.499629, 0.870269, 0.90716, 1)
 layout_mode = 2
 value = 100.0
+show_percentage = false
 script = ExtResource("7_symk1")
 monsterStats = NodePath("../../../../BlueMonster")
 
@@ -286,6 +287,7 @@ text = "Sleep"
 modulate = Color(0.679452, 0.368255, 0.655944, 1)
 layout_mode = 2
 value = 100.0
+show_percentage = false
 script = ExtResource("6_70q2e")
 monsterStats = NodePath("../../../../BlueMonster")
 
